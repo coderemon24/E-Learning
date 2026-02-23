@@ -14,7 +14,7 @@ services:
       - ./src:/app
     depends_on:
       - db
-    commands: ['air', '-c', '.air.toml'] # Use air for hot reloading
+    command: ['air', '-c', '.air.toml'] # Use air for hot reloading
   
   # database service for PostgreSQL
   db: 
