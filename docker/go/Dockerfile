@@ -1,11 +1,11 @@
-FROM golang:1.24-alpine
+FROM golang:1.25-alpine
 
 WORKDIR /app
 
 # Needed for HTTPS + git fetch
 RUN apk add --no-cache git ca-certificates tzdata
 
-# (optional but helpful) if corporate/proxy env exists, allow build-time args
+# if corporate/proxy env exists, allow build-time args
 ARG HTTP_PROXY
 ARG HTTPS_PROXY
 ARG NO_PROXY

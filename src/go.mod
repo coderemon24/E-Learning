@@ -1,3 +1,3 @@
-module elearning
+module github.com/coderemon24/e-learning
 
-go 1.25.1
+go 1.25.7
