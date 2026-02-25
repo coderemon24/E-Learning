@@ -1,13 +1,23 @@
-FROM golang:1.22-alpine
+FROM golang:1.24-alpine
 
 WORKDIR /app
 
-# install git in linux alpine for go mod tidy
-RUN apk add --no-cache git
+# Needed for HTTPS + git fetch
+RUN apk add --no-cache git ca-certificates tzdata
 
-# install air pkg for hot reload
-RUN go install github.com/air-verse/air@latest
+# (optional but helpful) if corporate/proxy env exists, allow build-time args
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG NO_PROXY
+ENV HTTP_PROXY=$HTTP_PROXY \
+    HTTPS_PROXY=$HTTPS_PROXY \
+    NO_PROXY=$NO_PROXY
+
+# Go module download stability
+ENV GOPROXY=https://proxy.golang.org,direct
+
+# Install air (pin version for reliability)
+RUN go install github.com/air-verse/air@v1.61.7
 
 EXPOSE 8080
-
 CMD ["air"]
