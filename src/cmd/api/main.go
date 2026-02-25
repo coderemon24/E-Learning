@@ -1,14 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
+
+	"github.com/coderemon24/e-learning/internal/config"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, World!")
+	mux := http.NewServeMux();
+	
+	config.RegisterRoutes(mux)
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request){
+		w.Write([]byte("Hello World"))
 	})
-	http.ListenAndServe(":8080", nil)
+	
+	http.ListenAndServe(":8080", mux)
+	
 }
