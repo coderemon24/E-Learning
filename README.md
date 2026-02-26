@@ -95,26 +95,25 @@ Clean layered architecture ensures:
 
 # 🗂 Project Structure
 
+```
 E-Learning/
 ├── cmd/
-│   └── main.go              # Application entry point
+│   └── main.go                # Application entry point
 │
 ├── internal/
-│   ├── config/              # Configuration & environment setup
-│   ├── controllers/         # HTTP handlers (request/response layer)
-│   ├── middlewares/         # Authentication & custom middleware
-│   ├── models/              # Database models / structs
-│   ├── repositories/        # Database interaction layer
-│   ├── routes/              # Route definitions
-│   └── services/            # Business logic layer
+│   ├── config/                # Configuration & environment setup
+│   ├── controllers/           # HTTP handlers (request/response layer)
+│   ├── middlewares/           # Authentication & custom middleware
+│   ├── models/                # Database models / structs
+│   ├── repositories/          # Database interaction layer
+│   ├── routes/                # Route definitions
+│   └── services/              # Business logic layer
 │
-├── docker/                  # Docker configuration files
-├── docker-compose.yml       # Multi-container Docker setup
-├── go.mod                   # Go module definition
-└── README.md                # Project documentation
-
-
----
+├── docker/                    # Docker configuration files
+├── docker-compose.yml         # Multi-container Docker setup
+├── go.mod                     # Go module definition
+└── README.md                  # Project documentation
+```
 
 # 🐳 Docker Setup (Recommended)
 
